@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        table{
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th,td{
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        button{
+            margin: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <button onclick="sortirajIgrace()">Sortiraj po bodovima</button>
+    <table id="tabla">
+        <tr>
+            <th>Igrac</th>
+            <th>Bodovi</th>
+        </tr>
+        <!-- <tr><td>Stefan</td><td>50</td></tr>
+        <tr><td>Elmir</td><td>80</td></tr>
+        <tr><td>Milica</td><td>30</td></tr> -->
+
+    </table>
+
+    <script>
+        let igraci = [
+            {ime: "Stefan", bodovi: 50}, 
+            {ime: "Gorica", bodovi: 80}, 
+            {ime: "Milica", bodovi: 30},
+            {ime: "Elmir", bodovi: 43},
+        ];
+
+        function prikaziIgrace(){
+            const tableHtmlElement = document.getElementById("tabla");
+            tableHtmlElement.innerHTML = `
+            <tr>
+            <th>Igrac</th>
+            <th>Bodovi</th>
+        </tr>
+        `;
+        igraci.forEach(
+            igrac =>{
+                tableHtmlElement.innerHTML=tableHtmlElement.innerHTML+`
+                <tr>
+                    <td>${igrac.ime}</td>
+                    <td>${igrac.bodovi}</td>
+                </tr>
+                `;
+            }
+        );
+        }
+
+        function sortirajIgrace(){
+            igraci.sort((prvi, drugi)=> drugi.bodovi - prvi.bodovi);
+            prikaziIgrace();
+        }
+
+        prikaziIgrace();
+
+    </script>
+</body>
+</html>

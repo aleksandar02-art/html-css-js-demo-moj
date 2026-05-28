@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" xmlns:font-size="http://www.w3.org/1999/xhtml" xmlns:color="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: gray;
+            padding: 30px;
+        }
+        .card{
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0, 0.1);
+        }
+        h1{
+            color: #2c3e50;
+        }
+        ul, ol{
+            background: #e1fcff;
+            padding: 15px 30px;
+            border-radius: 10px;
+        }
+        button{
+            padding: 10px 16px;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px
+        }
+
+        button:hover{
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Moja Top Lista</h1>
+    <p>Najdraze grickalice za coding sesiju:</p>
+    <ul id="snackList">
+        <li>Cips</li>
+        <li>Smoki</li>
+        <li>Cokolada</li>
+    </ul>
+
+    <p>Top 3 filma:</p>
+    <ol type="1">
+        <li>Interstellar</li>
+        <li>The Dark Knight</li>
+        <li>Inception</li>
+    </ol>
+
+    <button onclick="dodajSnack()">Dodaj novu grickalicu</button>
+</div>
+<script>
+    function dodajSnack(){
+        /*console.log("Neko je hteo snack...");*/
+        let noviSnack = prompt("Unesi naziv grickalice:")
+        if(noviSnack!==null && noviSnack.trim()!==""){
+            let listItem = document.createElement("li");
+            listItem.textContent=noviSnack;
+            const unorderedList = document.getElementById("snackList");
+            unorderedList.appendChild(listItem);
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
+<!--        <p>Topla pića:</p>-->
+<!--        <dl>-->
+<!--            <dt>Coffe</dt>-->
+<!--            <dd>- strong espresso ...</dd>-->
+<!--            <dt>Milk</dt>-->
+<!--            <dd>- white cold drink</dd>-->
+<!--            <dt>Tea</dt>-->
+<!--            <dd>&#45;&#45;cup of tea..</dd>-->
+<!--        </dl>-->

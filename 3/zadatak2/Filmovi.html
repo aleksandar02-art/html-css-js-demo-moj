@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Igrice</title>
+
+    <style>
+        body{
+           font-family: Arial, sans-serif;
+           background: gray;
+           padding: 30px;
+        }
+
+        .card{
+           background: #f6f2fb;
+           padding: 20px;
+           border-radius: 8px;
+        }
+        h1{
+            color: #2c3e50;
+        }
+        ol{
+            background: #e2f3ff;
+            padding: 15px 30px;
+            border-radius: 8px;
+        }
+
+        button{
+            padding: 15px 16px;
+            border:none;
+            background: #3498db;
+            cursor:pointer;
+            color: white;
+            border-radius: 8px;
+            margin-top:10px;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Moja lista Filmova</h1>
+    <p>Najdrazi filmovi:</p>
+    <ol id="filmList">
+        <li>Batman</li>
+        <li>Spiderman</li>
+        <li>Avengers</li>
+        <li>Inception</li>
+        <li>Tarzan</li>
+    </ol>
+    <button onclick="dodajFilm()">Dodaj Film</button>
+</div>
+
+
+
+<script>
+    function dodajFilm(){
+        let noviFilm= prompt("Unesi naziv filma:");
+        if(noviFilm!==null && noviFilm.trim()!==""){
+            let listItem = document.createElement("li");
+            listItem.textContent=noviFilm;
+            const orderedList = document.getElementById("filmList");
+            orderedList.appendChild(listItem);
+        }
+    }
+</script>
+
+</body>
+</html>
